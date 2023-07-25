@@ -2,6 +2,7 @@ import json
 import pandas as pd
 from os import read
 
+
 class Protocol:
 
   name: str="default"
