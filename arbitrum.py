@@ -6,12 +6,13 @@ import locale
 from datetime import datetime
 locale.setlocale(locale.LC_ALL, '')
 
+#Ethereum Connection: The script connects to an Ethereum node using the Web3 library. It asserts that the connection is successful.
+
 w3 = Web3(Web3.HTTPProvider(
     "https://winter-empty-river.discover.quiknode.pro/9adcd34a82a8c99bc85a15b8131afc1b991c4116/"))
 assert w3.isConnected()
 
 # load contracts
-
 
 def contract(address):
     abi = requests.get(
@@ -42,6 +43,7 @@ def cg_data(id, keys):
         data_dict[key] = data[key]
     return data_dict
 
+#lama api
 
 def get_avg_bribe():
     data = requests.post("https://api.llama.airforce/bribes",
@@ -66,7 +68,7 @@ veBal_2023 = 121929
 veBal_ts = veBal.caller.totalSupply()
 
 # Bal
-bal_cg = cg_data("balancer", ["current_price", "price_change_percentage_24h"])
+bal_cg = cg_data("balancer", ["current_price", "price_change_percentage_24h"] )
 bal_price = bal_cg["current_price"]
 bal_per_week = veBal_2022 if datetime.now().year == 2022 else veBal_2023
 bal_value_per_week = bal_per_week*bal_price

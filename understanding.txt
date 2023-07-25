@@ -1,0 +1,25 @@
+This is a Python script that uses the Streamlit library to create a web-based dashboard for displaying various metrics related to the Aura blockchain protocol. It fetches data from APIs such as Etherscan, CoinGecko, and Llama, and uses the Web3 library to interact with Ethereum smart contracts. 
+
+Here's an outline of what each part of the script does:
+
+1. **Imports and Setup**: The script starts by importing necessary libraries and establishing a connection to an Ethereum node via the `Web3` library. It also sets the locale for number formatting.
+
+2. **Functions Definitions**:
+    - `contract(address)`: This function takes a contract address as an argument, retrieves the contract's ABI (Application Binary Interface) from Etherscan, and returns a contract instance using Web3.
+    - `pretty(number, decimals, ether)`: This function formats a number to a specified number of decimal places. If the `ether` parameter is True, it converts the number from wei (the smallest unit of ether) to ether.
+    - `cg_data(id, keys)`: This function retrieves data for a specific coin from the CoinGecko API.
+    - `get_avg_bribe()`: This function fetches bribe data from the Llama API and calculates the average bribe.
+
+3. **Data Fetching and Calculation**: The script fetches data for several smart contracts and calculates various metrics related to Aura, Balancer (BAL), and Ethereum (ETH). 
+
+4. **Streamlit Dashboard Creation**: The script uses the Streamlit library to create a web-based dashboard. This includes creating a title, dividing the dashboard into columns, and populating those columns with metrics. The metrics are displayed in a readable format using the `pretty()` function defined earlier.
+
+   The dashboard is divided into four sections:
+   - **Crypto prices**: Displays the current prices of Aura, Bal, and Eth, along with their 24-hour price changes.
+   - **Emissions and bribes**: Displays various metrics related to the supply of veBal (a token related to Balancer), the emission of Bal and Aura per veAura (a token related to Aura), the total incentives per veAura every two weeks, and more.
+   - **Cost of yield**: Displays metrics related to the cost of achieving a yield of 10% APR on $1 million, the cost of bribes for achieving a 2% cap, and more.
+   - **Ownership or rent?**: Displays metrics related to the annual bribe cost per veAura and the yearly bribes as a percentage of the cost of Aura.
+
+Please note that the script includes some hardcoded values (like `veBal_2022` and `veBal_2023`) which may need to be updated or fetched dynamically for accurate results. Also, it appears that the script expects the Ethereum node to be running at a specific URL, which is also hardcoded.
+
+Let me know if you want a deeper explanation of any part of this script.
